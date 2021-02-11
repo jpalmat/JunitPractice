@@ -10,4 +10,11 @@ public class MathUtils {
     public double computeCircleAres(int radius) {
         return 3.14 * radius * radius;
     }
+
+    public double divide(double num1, double num2) {
+        if(num2==0.0){
+            throw new ArithmeticException();
+        }
+        return num1/num2;
+    }
 }

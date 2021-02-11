@@ -16,9 +16,13 @@ class MathUtilsTest {
 
     @Test
     void testAddNumbers(){
-        int expected = 2;
-        int actual = mathUtils.add(1, 1);
-        assertEquals(expected, actual);
+//        int expected = 2;
+//        int actual = mathUtils.add(1, 1);
+//        assertEquals(expected, actual);
+        assertAll(
+                ()-> assertEquals(2, mathUtils.add(1, 1)),
+                ()-> assertEquals(0, mathUtils.add(1, -1))
+        );
     }
 
     @Test
@@ -26,6 +30,18 @@ class MathUtilsTest {
         double expected = 314.15;
         assertEquals(expected, mathUtils.computeCircleAres(10), 3, "Circle sres fail");
 
+    }
+
+    @Test
+    void whenDivideTwoNumbers_shouldReturnDouble(){
+        double expected = 2.0;
+        double actual = mathUtils.divide(10.0, 5.0);
+        assertEquals(expected, actual, "");
+    }
+
+    @Test
+    void whenDivideForCero_shouldThrowError(){
+        assertThrows(ArithmeticException.class, ()->mathUtils.divide(1, 0), "Should throw an exception");
     }
 
 }
